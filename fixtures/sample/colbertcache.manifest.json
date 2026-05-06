@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "name": "colbertcache-sample",
+  "version": "0.1.0",
+  "description": "Tiny synthetic fixture mirror for deterministic retrieval-demo smoke tests.",
+  "license": "MIT",
+  "homepage": "https://github.com/rogerchappel/colbertcache",
+  "provenance": {
+    "summary": "Synthetic fixture written for colbertcache; inspired by ColBERT-style retrieval demos without copying source data or code.",
+    "source": "local synthetic text",
+    "adjacentInspiration": "https://github.com/vincentkoc/Colbertv2-Wiki17-Abstracts-Image",
+    "transformedBy": "colbertcache project scaffolding"
+  },
+  "retrieval": {
+    "tokenizer": "whitespace-lowercase",
+    "topK": 2
+  },
+  "files": [
+    {
+      "path": "docs/wiki-abstracts.txt",
+      "role": "document",
+      "mediaType": "text/plain",
+      "description": "Synthetic prose about retrieval model concepts.",
+      "bytes": 328,
+      "sha256": "4e30edcf29f5f140c82604a28d5346a90c8509a9e767308b010294ea44c0fa59"
+    },
+    {
+      "path": "docs/image-captions.txt",
+      "role": "document",
+      "mediaType": "text/plain",
+      "description": "Synthetic image-caption style passages.",
+      "bytes": 197,
+      "sha256": "2905e7642e46cb4e21de1296f6d0826fa8a5daee4f9f86956ec5e8139b0d7103"
+    },
+    {
+      "path": "queries/sample-queries.jsonl",
+      "role": "queries",
+      "mediaType": "application/x-ndjson",
+      "description": "Two local demo queries.",
+      "bytes": 136,
+      "sha256": "d315f12bc262f2fc3c484d3bcaa0c0a62339593399fc2a7708133a3ccfb76a20"
+    },
+    {
+      "path": "PROVENANCE.md",
+      "role": "provenance",
+      "mediaType": "text/markdown",
+      "description": "License and source note for the sample fixture.",
+      "bytes": 330,
+      "sha256": "b9585c383dc537d221392edbdbaaa5f74703571c22ddc32db46979174d788553"
+    }
+  ]
+}
