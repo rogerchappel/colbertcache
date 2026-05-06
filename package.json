@@ -1,0 +1,43 @@
+{
+  "name": "colbertcache",
+  "version": "0.1.0",
+  "description": "Local fixture mirror manager for retrieval demos.",
+  "type": "module",
+  "bin": {
+    "colbertcache": "./bin/colbertcache.js"
+  },
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "fixtures",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/check.js",
+    "build": "node scripts/build.js",
+    "smoke": "bash scripts/smoke.sh",
+    "package:smoke": "npm pack --dry-run",
+    "release:check": "npm test && npm run check && npm run build && npm run smoke && npm run package:smoke"
+  },
+  "keywords": [
+    "retrieval",
+    "fixtures",
+    "datasets",
+    "local-first",
+    "checksums",
+    "rag",
+    "colbert"
+  ],
+  "author": "Roger Chappel",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}
