@@ -1,0 +1,2 @@
+figure-001: A diagram showing query tokens matching document passages through late interaction.
+figure-002: A local cache folder with manifest, checksums, provenance, and demo configuration files.

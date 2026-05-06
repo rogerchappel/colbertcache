@@ -1,0 +1,3 @@
+ColBERT is a retrieval model family that uses late interaction between query and document token embeddings.
+Local-first demos are easier to trust when every fixture file has a checksum and a license note.
+A tiny retrieval fixture should be small enough to inspect by hand and deterministic enough for agents to test repeatedly.
