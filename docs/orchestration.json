@@ -1,0 +1,23 @@
+{
+  "project": "colbertcache",
+  "workflow": [
+    "branch",
+    "record-provenance",
+    "verify-manifest",
+    "generate-demo-config",
+    "run-local-checks",
+    "open-pr"
+  ],
+  "requiredChecks": [
+    "npm test",
+    "npm run check",
+    "npm run build",
+    "npm run smoke",
+    "bash scripts/validate.sh"
+  ],
+  "reviewPolicy": {
+    "requiresPrLink": true,
+    "requiresProvenance": true,
+    "requiresNoHiddenNetworkCalls": true
+  }
+}
