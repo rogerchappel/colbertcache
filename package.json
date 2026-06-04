@@ -36,6 +36,14 @@
     "colbert"
   ],
   "author": "Roger Chappel",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerchappel/colbertcache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/colbertcache/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/colbertcache#readme",
   "license": "MIT",
   "engines": {
     "node": ">=20"
