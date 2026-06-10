@@ -47,17 +47,6 @@ This project is a fresh OSS concept inspired by the existence of ColBERT-style d
 
 Please keep contributions small and reviewable. Fixture PRs must include provenance, license notes, and local verification output. See `CONTRIBUTING.md` and `docs/ORCHESTRATION.md`.
 
-## Verify
-
-Run local verification before opening a PR or publishing:
-
-```bash
-npm test
-npm run release:check
-```
-
-`release:check` runs tests, build steps, smoke verification, and a dry-run `npm pack` to ensure everything ships cleanly.
-
 ## Verification
 
 Run the release-readiness checks before publishing or cutting a PR:
