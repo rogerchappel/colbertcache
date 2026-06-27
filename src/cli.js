@@ -9,7 +9,7 @@ import { writeJson } from './fs-utils.js';
 const VERSION = '0.1.0';
 
 function help() {
-  return `colbertcache ${VERSION}\n\nLocal fixture mirror manager for retrieval demos.\n\nUsage:\n  colbertcache inspect <dataset> [--format json|markdown] [--output <file>] [--strict]\n  colbertcache verify <dataset> [--strict] [--json]\n  colbertcache config <dataset> [--output <file>] [--name <demo-name>]\n  colbertcache init <dataset> [--name <dataset-name>]\n  colbertcache --help\n  colbertcache --version\n`;
+  return `colbertcache ${VERSION}\n\nLocal fixture mirror manager for retrieval demos.\n\nUsage:\n  colbertcache inspect <dataset> [--format json|markdown] [--output <file>] [--strict]\n  colbertcache verify <dataset> [--strict] [--json] [--output <file>]\n  colbertcache config <dataset> [--output <file>] [--name <demo-name>]\n  colbertcache init <dataset> [--name <dataset-name>]\n  colbertcache --help\n  colbertcache --version\n`;
 }
 
 function parseFlags(args) {
