@@ -23,6 +23,17 @@ test('CLI verify passes sample fixture', () => {
   assert.match(result.stdout, /PASS colbertcache-sample/);
 });
 
+test('CLI verify writes JSON output', async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), 'colbertcache-verify-'));
+  const output = path.join(dir, 'verify.json');
+  const result = run(['verify', 'fixtures/sample', '--strict', '--json', '--output', output]);
+  assert.equal(result.status, 0, result.stderr);
+  assert.equal(result.stdout, '');
+  const report = JSON.parse(await readFile(output, 'utf8'));
+  assert.equal(report.ok, true);
+  assert.equal(report.summary.verifiedFiles, 4);
+});
+
 test('CLI writes retrieval config', async () => {
   const dir = await mkdtemp(path.join(tmpdir(), 'colbertcache-test-'));
   const output = path.join(dir, 'config.json');

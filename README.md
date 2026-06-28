@@ -22,11 +22,14 @@ node bin/colbertcache.js --help
 
 ```bash
 colbertcache verify fixtures/sample --strict
+colbertcache verify fixtures/sample --strict --json --output out/verify.json
 colbertcache inspect fixtures/sample --format markdown --output out/report.md
 colbertcache config fixtures/sample --output out/retrieval-config.json --name local-demo
 ```
 
 A fixture mirror is just a directory with `colbertcache.manifest.json`, local files, checksums, and provenance notes.
+
+See [examples/basic-usage.md](examples/basic-usage.md) for the same flow with representative CLI output.
 
 ## Commands
 
