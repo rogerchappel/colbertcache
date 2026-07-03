@@ -38,6 +38,19 @@ See [examples/basic-usage.md](examples/basic-usage.md) for the same flow with re
 - `config <dataset>`: generate deterministic local retrieval-demo config.
 - `init <dataset>`: create a starter fixture mirror skeleton.
 
+
+## Verification
+
+Run the local quality gates before opening a pull request:
+
+```sh
+npm run lint
+npm test
+npm run smoke
+```
+
+`npm run lint` is an alias for the repository static check so contributors can use the common npm workflow without guessing the project-specific command.
+
 ## Safety boundaries
 
 colbertcache is local-first by design. It does not fetch remote datasets, scrape credentials, phone home, or publish artifacts. If your fixture came from somewhere else, write that down in provenance and respect the upstream license.
