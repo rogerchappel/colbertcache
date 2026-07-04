@@ -76,4 +76,6 @@ npm run package:smoke
 npm run release:check
 ```
 
-Use `npm run package:smoke` or `npm pack --dry-run` to confirm the published tarball includes the support docs and runnable package contents.
+Use `npm run package:smoke` to confirm the published tarball includes the CLI,
+sample fixture mirror, example walkthrough, manifest/provenance docs, support
+docs, and runnable package contents.
