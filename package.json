@@ -14,6 +14,7 @@
     "bin",
     "src",
     "fixtures",
+    "examples",
     "docs",
     "README.md",
     "LICENSE",
@@ -28,7 +29,7 @@
     "lint": "node scripts/check.js",
     "test": "node --test",
     "smoke": "bash scripts/smoke.sh",
-    "package:smoke": "npm pack --dry-run",
+    "package:smoke": "node scripts/package-smoke.mjs",
     "release:check": "npm test && npm run check && npm run build && npm run smoke && npm run package:smoke"
   },
   "keywords": [
