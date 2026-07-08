@@ -14,6 +14,28 @@ test('rejects incomplete manifests', () => {
   assert.throws(() => validateManifest({ name: 'bad' }), /Invalid manifest/);
 });
 
+test('rejects non-object manifests without crashing', () => {
+  assert.throws(() => validateManifest(null), /manifest must be an object/);
+  assert.throws(() => validateManifest([]), /manifest must be an object/);
+});
+
+test('rejects manifest file paths outside the dataset', () => {
+  const base = {
+    name: 'bad-paths',
+    version: '0.1.0',
+    license: 'MIT',
+    provenance: { summary: 'Synthetic fixture.' },
+    files: [{ path: 'docs/source.txt', bytes: 1, sha256: 'abc' }]
+  };
+
+  for (const unsafePath of ['../secret.txt', '/tmp/secret.txt', 'C:\\secret.txt', 'docs/../secret.txt']) {
+    assert.throws(
+      () => validateManifest({ ...base, files: [{ ...base.files[0], path: unsafePath }] }),
+      /relative path inside the dataset/
+    );
+  }
+});
+
 test('verifies sample fixture inventory and checksums', async () => {
   const result = await verifyDataset('fixtures/sample', { strict: true });
   assert.equal(result.ok, true);
