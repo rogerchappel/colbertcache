@@ -39,18 +39,6 @@ See [examples/basic-usage.md](examples/basic-usage.md) for the same flow with re
 - `init <dataset>`: create a starter fixture mirror skeleton.
 
 
-## Verification
-
-Run the local quality gates before opening a pull request:
-
-```sh
-npm run lint
-npm test
-npm run smoke
-```
-
-`npm run lint` is an alias for the repository static check so contributors can use the common npm workflow without guessing the project-specific command.
-
 ## Safety boundaries
 
 colbertcache is local-first by design. It does not fetch remote datasets, scrape credentials, phone home, or publish artifacts. If your fixture came from somewhere else, write that down in provenance and respect the upstream license.
@@ -68,14 +56,16 @@ Please keep contributions small and reviewable. Fixture PRs must include provena
 Run the release-readiness checks before publishing or cutting a PR:
 
 ```bash
+npm run lint
 npm run check
-npm run build
-npm run test
+npm test
 npm run smoke
 npm run package:smoke
 npm run release:check
 ```
 
+`npm run lint` is an alias for the repository static check so contributors can
+use the common npm workflow without guessing the project-specific command.
 Use `npm run package:smoke` to confirm the published tarball includes the CLI,
 sample fixture mirror, example walkthrough, manifest/provenance docs, support
-docs, and runnable package contents.
+docs, executable bin metadata, and runnable package contents.
