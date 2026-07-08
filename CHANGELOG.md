@@ -13,6 +13,7 @@ format and uses semantic versioning when versioned releases are published.
 - Release readiness: package smoke now inspects the npm tarball for the CLI, fixture mirror, example walkthrough, manifest and provenance docs, support docs, and declared bins.
 - Release readiness: package smoke now fails when declared bins lose executable metadata or Node shebangs.
 - Release readiness: consolidate README verification guidance around the full local release check.
+- Manifest validation now rejects absolute paths, backslashes, traversal, and normalized path rewrites before verification reads fixture files.
 
 ## Release Links
 
