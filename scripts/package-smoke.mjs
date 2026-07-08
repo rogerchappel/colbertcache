@@ -7,6 +7,7 @@ const output = execFileSync("npm", ["pack", "--dry-run", "--json"], {
 
 const [pack] = JSON.parse(output);
 const packedFiles = new Set(pack.files.map((file) => file.path));
+const packedFileByPath = new Map(pack.files.map((file) => [file.path, file]));
 const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
 
 const requiredFiles = [
@@ -37,6 +38,21 @@ const declaredBins = Object.values(packageJson.bin ?? {}).map((binPath) =>
 const missingBins = declaredBins.filter((binPath) => !packedFiles.has(binPath));
 if (missingBins.length > 0) {
   console.error(`Package smoke failed; missing declared bins:\n${missingBins.join("\n")}`);
+  process.exit(1);
+}
+
+const nonExecutableBins = declaredBins.filter((binPath) => {
+  const mode = packedFileByPath.get(binPath)?.mode;
+  return typeof mode !== "number" || (mode & 0o111) === 0;
+});
+if (nonExecutableBins.length > 0) {
+  console.error(`Package smoke failed; non-executable declared bins:\n${nonExecutableBins.join("\n")}`);
+  process.exit(1);
+}
+
+const missingShebangs = declaredBins.filter((binPath) => !readFileSync(binPath, "utf8").startsWith("#!/usr/bin/env node"));
+if (missingShebangs.length > 0) {
+  console.error(`Package smoke failed; declared bins missing Node shebangs:\n${missingShebangs.join("\n")}`);
   process.exit(1);
 }
 
